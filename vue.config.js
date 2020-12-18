@@ -22,7 +22,9 @@ const jsCdn = [
 // chainWebpack修改loader，添加loader
 module.exports = {
   configureWebpack: config => {
+    console.log(config.optimization.minimizer[0].options.terserOptions.compress)
     if (isProduction) {
+      // 生产环境去除console.log
       config.optimization.minimizer[0].options.terserOptions.compress.drop_console = true
     }
   },
