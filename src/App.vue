@@ -20,7 +20,7 @@ export default {
     }
   },
   created() {
-    console.log(a)
+    console.log(this.a)
   }
 }
 </script>
