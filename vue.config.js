@@ -1,7 +1,6 @@
 'use strict'
 
 const path = require('path')
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 const isProduction = process.env.NODE_ENV === 'production'
 
@@ -37,6 +36,22 @@ module.exports = {
       args[0].title = '重新学习vue-cli'
       return args
     })
+
+    const svgRule = config.module.rule('svg')
+    svgRule.uses.clear()
+    svgRule.exclude.add(/node_modules/)
+    svgRule
+      .test(/\.svg$/)
+      .use('svg-sprite-loader')
+      .loader('svg-sprite-loader')
+      .options({
+        symbolId: 'icon-[name]'
+      })
+
+    const imagesRule = config.module.rule('images')
+    imagesRule.exclude.add(resolve('src/icons'))
+    config.module.rule('images').test(/\.(png|jpe?g|gif|svg)(\?.*)?$/)
+
     // 生产环境删除预加载
     if (isProduction) {
       config.plugins.delete('preload')
@@ -44,7 +59,8 @@ module.exports = {
     }
   },
   css: {
-    extract: false,
+    // 是否将组件中的css提取到一个独立的文件中，而不是动态注入到 JavaScript 中的 inline 代码,默认为true
+    extract: true,
     loaderOptions: {
       // pass options to sass-loader
       scss: {
