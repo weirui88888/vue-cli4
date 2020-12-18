@@ -1,6 +1,9 @@
 'use strict'
 
 const path = require('path')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+
+const isProduction = process.env.NODE_ENV === 'production'
 
 function resolve(dir) {
   return path.join(__dirname, dir)
@@ -18,13 +21,12 @@ const jsCdn = [
 // configureWebpack
 // chainWebpack修改loader，添加loader
 module.exports = {
-  configureWebpack: {
-    resolve: {
-      alias: {
-        '@': resolve('src')
-      }
+  configureWebpack: config => {
+    if (isProduction) {
+      config.optimization.minimizer[0].options.terserOptions.compress.drop_console = true
     }
   },
+
   chainWebpack: config => {
     // 配置别名
     config.resolve.alias.set('@', resolve('./src'))
@@ -33,6 +35,11 @@ module.exports = {
       args[0].title = '重新学习vue-cli'
       return args
     })
+    // 生产环境删除预加载
+    if (isProduction) {
+      config.plugins.delete('preload')
+      config.plugins.delete('prefetch')
+    }
   },
   css: {
     loaderOptions: {
