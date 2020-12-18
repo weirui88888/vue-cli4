@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <HelloWorld />
-    <div class="box">1</div>
+    <div class="box">12</div>
   </div>
 </template>
 
