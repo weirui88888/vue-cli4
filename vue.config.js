@@ -20,8 +20,9 @@ const jsCdn = [
 // configureWebpack
 // chainWebpack修改loader，添加loader
 module.exports = {
+  // 在每次保存时执行校验的选项是默认开启的
+  lintOnSave: process.env.NODE_ENV !== 'production',
   configureWebpack: config => {
-    console.log(config.optimization.minimizer[0].options.terserOptions.compress)
     if (isProduction) {
       // 生产环境去除console.log
       config.optimization.minimizer[0].options.terserOptions.compress.drop_console = true

@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <div class="main">
+    <!-- <div class="main">
       <svg-icon iconClass="undraw_noted_pc9f" class="main-svg"></svg-icon>
-    </div>
+    </div> -->
     <div class="left-logo">
       <svg-icon iconClass="undraw_Mobile_app_p3ts"></svg-icon>
     </div>
