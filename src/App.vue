@@ -3,7 +3,7 @@
     <!-- <div class="main">
       <svg-icon iconClass="undraw_noted_pc9f" class="main-svg"></svg-icon>
     </div> -->
-    {{ NODE_ENV }}
+    dev - {{ NODE_ENV }}
     <div class="left-logo">
       <svg-icon iconClass="undraw_Mobile_app_p3ts"></svg-icon>
     </div>
