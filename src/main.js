@@ -4,7 +4,7 @@ import '@/main.scss'
 import '@/icons'
 
 Vue.config.productionTip = false
-alert(kk)
+alert(this.name)
 new Vue({
   render: h => h(App)
 }).$mount('#app')
