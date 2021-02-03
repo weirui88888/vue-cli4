@@ -21,7 +21,9 @@ export default {
       Logo
     }
   },
-  created() {}
+  created() {
+    console.log(123)
+  }
 }
 </script>
 
