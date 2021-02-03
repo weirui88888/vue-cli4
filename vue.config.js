@@ -21,7 +21,7 @@ const jsCdn = [
 // chainWebpack修改loader，添加loader
 module.exports = {
   // 在每次保存时执行校验的选项是默认开启的
-  productionSourceMap: false,
+  productionSourceMap: true,
   lintOnSave: process.env.NODE_ENV !== 'production',
   publicPath: '/vue-cli4',
   configureWebpack: config => {
