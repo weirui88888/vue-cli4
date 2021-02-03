@@ -26,6 +26,7 @@
     "sass-loader": "^10.1.0",
     "svg-sprite-loader": "^5.2.1",
     "uglifyjs-webpack-plugin": "^2.2.0",
+    "url-loader": "^4.1.1",
     "vue-template-compiler": "^2.6.11"
   }
 }

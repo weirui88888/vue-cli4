@@ -1,7 +1,7 @@
 'use strict'
 
 const path = require('path')
-
+const merge = require('webpack-merge')
 const isProduction = process.env.NODE_ENV === 'production'
 
 function resolve(dir) {
@@ -54,6 +54,15 @@ module.exports = {
     imagesRule.exclude.add(resolve('src/icons'))
     config.module.rule('images').test(/\.(png|jpe?g|gif|svg)(\?.*)?$/)
 
+    config.module
+      .rule('images')
+      .use('url-loader')
+      .loader('url-loader')
+      .tap(options =>
+        merge(options, {
+          limit: 51200
+        })
+      )
     config.plugins.delete('preload')
     config.plugins.delete('prefetch')
   },

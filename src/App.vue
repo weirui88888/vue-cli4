@@ -1,7 +1,11 @@
 <template>
   <div id="app">
     <div class="main">
-      <svg-icon iconClass="undraw_noted_pc9f" class="main-svg"></svg-icon>
+      <!-- <svg-icon iconClass="undraw_noted_pc9f" class="main-svg"></svg-icon> -->
+      <img
+        src="https://m0-file2.bybutter.com/uploaded/rms/B25B89E468D532F8ADB1566453549030.png"
+        alt=""
+      />
     </div>
   </div>
 </template>
