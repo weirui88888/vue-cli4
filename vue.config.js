@@ -23,7 +23,7 @@ module.exports = {
   // 在每次保存时执行校验的选项是默认开启的
   // productionSourceMap: true,
   lintOnSave: process.env.NODE_ENV !== 'production',
-  publicPath: '/my-app/',
+  publicPath: '/vue-cli4',
   configureWebpack: config => {
     if (isProduction) {
       // 生产环境去除console.log

@@ -2,7 +2,6 @@
   <div id="app">
     <div class="main">
       <svg-icon iconClass="undraw_noted_pc9f" class="main-svg"></svg-icon>
-      <input type="text" placeholder="hello" />
     </div>
   </div>
 </template>
