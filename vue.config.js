@@ -26,7 +26,6 @@ module.exports = {
   publicPath: '/vue-cli4',
   configureWebpack: config => {
     if (isProduction) {
-      // 生产环境去除console.log
       config.optimization.minimizer[0].options.terserOptions.compress.drop_console = true
     }
   },
