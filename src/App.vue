@@ -1,14 +1,8 @@
 <template>
   <div id="app">
-    <!-- <div class="main">
+    <div class="main">
       <svg-icon iconClass="undraw_noted_pc9f" class="main-svg"></svg-icon>
-    </div> -->
-    {{ NODE_ENV }}
-    <div class="left-logo">
-      <svg-icon iconClass="undraw_Mobile_app_p3ts"></svg-icon>
-    </div>
-    <div class="right-logo">
-      <svg-icon iconClass="undraw_Mobile_application_mr4r"></svg-icon>
+      <input type="text" placeholder="hello" />
     </div>
   </div>
 </template>
@@ -25,13 +19,10 @@ export default {
     return {
       a: 10,
       b: 20,
-      NODE_ENV: process.env.NODE_ENV,
       Logo
     }
   },
-  created() {
-    console.log(this.NODE_ENV)
-  }
+  created() {}
 }
 </script>
 

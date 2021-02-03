@@ -21,7 +21,9 @@ const jsCdn = [
 // chainWebpack修改loader，添加loader
 module.exports = {
   // 在每次保存时执行校验的选项是默认开启的
+  // productionSourceMap: true,
   lintOnSave: process.env.NODE_ENV !== 'production',
+  publicPath: '/my-app/',
   configureWebpack: config => {
     if (isProduction) {
       // 生产环境去除console.log
@@ -34,7 +36,7 @@ module.exports = {
     config.resolve.alias.set('@', resolve('./src'))
     config.plugin('html').tap(args => {
       args[0].cdn = jsCdn
-      args[0].title = '重新学习vue-cli'
+      args[0].title = 'vue-cli'
       return args
     })
 
@@ -53,11 +55,8 @@ module.exports = {
     imagesRule.exclude.add(resolve('src/icons'))
     config.module.rule('images').test(/\.(png|jpe?g|gif|svg)(\?.*)?$/)
 
-    // 生产环境删除预加载
-    if (isProduction) {
-      config.plugins.delete('preload')
-      config.plugins.delete('prefetch')
-    }
+    config.plugins.delete('preload')
+    config.plugins.delete('prefetch')
   },
   css: {
     // 是否将组件中的css提取到一个独立的文件中，而不是动态注入到 JavaScript 中的 inline 代码,默认为true
